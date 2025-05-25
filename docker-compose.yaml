@@ -6,13 +6,19 @@ services:
     depends_on:
       - postgres
       - redis
+    volumes:
+      - ./server:/app
+      - /app/node_modules
 
   client:
     build: ./client
     ports:
-      - "3001:3001"
+      - "5173:5173"
     depends_on:
       - server
+    volumes:
+      - ./client:/app
+      - /app/node_modules
 
   postgres:
     image: postgres:latest
