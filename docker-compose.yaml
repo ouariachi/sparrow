@@ -2,7 +2,7 @@ services:
   server:
     build: ./server
     ports:
-      - "3000:3000"
+      - "3000:3003"
     depends_on:
       - postgres
       - redis
@@ -13,7 +13,7 @@ services:
   client:
     build: ./client
     ports:
-      - "5173:5173"
+      - "5173:3004"
     depends_on:
       - server
     volumes:
@@ -23,7 +23,7 @@ services:
   postgres:
     image: postgres:latest
     ports:
-      - "5432:5432"
+      - "5432:5433"
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
@@ -34,7 +34,7 @@ services:
   redis:
     image: redis:latest
     ports:
-      - "6379:6379"
+      - "6379:6380"
 
 volumes:
   pgdata:
