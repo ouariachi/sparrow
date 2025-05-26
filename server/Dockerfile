@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:24-alpine
 
 WORKDIR /app
 
@@ -11,4 +11,4 @@ EXPOSE 3000
 
 RUN chmod +x docker-start.sh
 
-CMD ["bash", "./docker-start.sh"]
+CMD ["sh", "./docker-start.sh"]

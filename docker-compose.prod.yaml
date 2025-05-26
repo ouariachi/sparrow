@@ -15,9 +15,11 @@ services:
       NODE_ENV: ${NODE_ENV}
 
   client:
-    build: ./client
+    build: 
+      context: ./client
+      dockerfile: Dockerfile.prod
     ports:
-      - "3004:5173"
+      - "3004:80"
     depends_on:
       - server
     volumes:
